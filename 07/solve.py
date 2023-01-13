@@ -6,7 +6,6 @@ with open("input.txt") as f:
 sizes = defaultdict(int)
 stack = []
 
-i = 0
 for c in commands:
     if c.startswith("$ ls") or c.startswith("dir"):
         continue
@@ -15,7 +14,6 @@ for c in commands:
         if dest == "..":
             stack.pop()
         else:
-            i += 1
             path = f"{stack[-1]}_{dest}" if stack else dest
             stack.append(path)
     else:
